@@ -100,101 +100,73 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-
+///_buildFilterChip(
+//                         Icons.all_inclusive,
+//                         "All",
+//                         AppColors.periwinkle,
+//                             () {
+//                           setState(() {
+//                             selectedFilter = "All";
+//                           });
                 SizedBox(height: 16),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
                       _buildFilterChip(
-                        Icons.all_inclusive,
-                        "All",
-                        AppColors.periwinkle,
-                            () {
-                          setState(() {
-                            selectedFilter = "All";
-                          });
-                          //Navigator.push(
-                        // context,
-                          //  MaterialPageRoute(builder: (context) =>  Post()),
-                       //  );
-                              },
-                      ),
+                      icon: Icons.all_inclusive,
+                      label: "All",
+                      textColor: AppColors.periwinkle,
+                      selectedFilter: selectedFilter,
+                      onTap: () {
+                        setState(() {
+                          selectedFilter = "All";
+                        });
+                      },
+                    ),
+
                       _buildFilterChip(
-                        Icons.sports_soccer,
-                        "Sport",
-                        AppColors.periwinkle,
-                            () {
+                        icon: Icons.sports_soccer,
+                        label: "Sport",
+                        textColor: AppColors.periwinkle,
+                        selectedFilter: selectedFilter,
+                        onTap: () {
                           setState(() {
                             selectedFilter = "Sport";
                           });
-                          //Navigator.pushNamed(context, '/allPage');
                         },
                       ),
                       _buildFilterChip(
-                        Icons.cake,
-                        "Birthday",
-                        AppColors.periwinkle,
-                            () {
+                        icon: Icons.cake,
+                        label: "Birthday",
+                        textColor: AppColors.periwinkle,
+                        selectedFilter: selectedFilter,
+                        onTap: () {
                           setState(() {
                             selectedFilter = "Birthday";
                           });
-                         // Navigator.pushNamed(context, '/allPage');
                         },
                       ),
                       _buildFilterChip(
-                        Icons.business,
-                        "Meeting",
-                        AppColors.periwinkle,
-                            () {
+                        icon: Icons.business,
+                        label: "Meeting",
+                        textColor: AppColors.periwinkle,
+                        selectedFilter: selectedFilter,
+                        onTap: () {
                           setState(() {
                             selectedFilter = "Meeting";
                           });
-                         // Navigator.pushNamed(context, '/allPage');
                         },
                       ),
                       _buildFilterChip(
-                        Icons.mic,
-                        "Exhibition",
-                        AppColors.periwinkle,
-                            () {
+                        icon: Icons.mic,
+                        label: "Exhibition",
+                        textColor: AppColors.periwinkle,
+                        selectedFilter: selectedFilter,
+                        onTap: () {
                           setState(() {
                             selectedFilter = "Exhibition";
                           });
-                         // Navigator.pushNamed(context, '/allPage');
-                        },
-                      ),
-                      _buildFilterChip(
-                        Icons.business,
-                        "Meeting",
-                        AppColors.periwinkle,
-                            () {
-                          setState(() {
-                            selectedFilter = "Meeting";
-                          });
-                        //  Navigator.pushNamed(context, '/allPage');
-                        },
-                      ),
-                      _buildFilterChip(
-                        Icons.business,
-                        "Meeting",
-                        AppColors.periwinkle,
-                            () {
-                          setState(() {
-                            selectedFilter = "Meeting";
-                          });
-                         // Navigator.pushNamed(context, '/allPage');
-                        },
-                      ),
-                      _buildFilterChip(
-                        Icons.business,
-                        "Meeting",
-                        AppColors.periwinkle,
-                            () {
-                          setState(() {
-                            selectedFilter = "Meeting";
-                          });
-                        //  Navigator.pushNamed(context, '/allPage');
                         },
                       ),
                     ],
@@ -622,38 +594,39 @@ Widget _buildNavItem(
     ),
   );
 }
-Widget _buildFilterChip(
-    IconData icon,
-    String label,
-    Color textColor,
-    VoidCallback onTap,
-    ) {
-  var selectedFilter;
-  bool isSelected = selectedFilter == label;
+Widget _buildFilterChip({
+  required IconData icon,
+  required String label,
+  required Color textColor,
+  required String selectedFilter,
+  required VoidCallback onTap,
+}) {
+  final bool isSelected = selectedFilter == label;
 
   return InkWell(
     onTap: onTap,
     borderRadius: BorderRadius.circular(20),
     child: Container(
-      margin: EdgeInsets.only(right: 8),
-      padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+      margin: const EdgeInsets.only(right: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
       decoration: BoxDecoration(
         color: isSelected ? AppColors.periwinkle : AppColors.ofwhite,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: isSelected ? AppColors.periwinkle : AppColors.periwinkle,
-          width: 1,
-        ),
+        border: Border.all(color: AppColors.periwinkle, width: 1),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 16, color: AppColors.periwinkle),
-          SizedBox(width: 6),
+          Icon(
+            icon,
+            size: 16,
+            color: isSelected ? Colors.white : AppColors.periwinkle,
+          ),
+          const SizedBox(width: 6),
           Text(
             label,
             style: TextStyle(
-              color: textColor,
+              color: isSelected ? Colors.white : textColor,
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
             ),
           ),
@@ -662,3 +635,4 @@ Widget _buildFilterChip(
     ),
   );
 }
+

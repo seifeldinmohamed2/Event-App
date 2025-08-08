@@ -1,3 +1,4 @@
+import 'package:evently_app/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'Onboarding_screens/onboarding_screenes.dart';
 
@@ -10,13 +11,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // Future.delayed(const Duration(seconds: 1), () {
-   //   Navigator.pushReplacementNamed(context, SplashScreen);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       routes: {
-        "/": (context) => const OnboardingScreenes(),
+        "/": (context) => const SplashScreen(),
+        '/onboarding': (context) => const OnboardingScreenes(),
         // "/splash": (context) => const SplashScreen(),
       },
     );

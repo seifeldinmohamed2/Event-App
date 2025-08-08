@@ -100,15 +100,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-///_buildFilterChip(
-//                         Icons.all_inclusive,
-//                         "All",
-//                         AppColors.periwinkle,
-//                             () {
-//                           setState(() {
-//                             selectedFilter = "All";
-//                           });
-                SizedBox(height: 16),
+         SizedBox(height: 16),
+
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(

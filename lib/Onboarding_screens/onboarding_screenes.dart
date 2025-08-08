@@ -27,7 +27,6 @@ class _OnboardingScreenesState extends State<OnboardingScreenes> {
             });
           },
           children: const [
-            SplashScreen(),
             OnboardingScreen1(),
             OnboardingScreen2(),
             OnboardingScreen3(),

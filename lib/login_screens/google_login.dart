@@ -52,7 +52,6 @@ class _GoogleLoginState extends State<GoogleLogin> {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: TextFormField(
                       controller: _emailController,
-                      obscureText: false,
                       decoration: InputDecoration(
                         hintText: "Email",
                         prefixIcon: Padding(
